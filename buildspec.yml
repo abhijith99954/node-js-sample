@@ -1,0 +1,23 @@
+# Do not change version. This is the version of AWS buildspec, not the version of your buildspec file.
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16  # Specify the Node.js version required for your project
+  pre_build:
+    commands:
+      - echo Installing NPM dependencies...
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Node.js code..
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+# Include only the files required for your application to run.
+# Do not recursively include artifacts from node_modules as it will include unnecessary packages.
+artifacts:
+  files:
+    - '**/*'  # Include necessary files
